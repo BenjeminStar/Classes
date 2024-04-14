@@ -1,21 +1,25 @@
 class api {
+    /**
+     * Constructor for initializing the API URL.
+     */
     constructor() {
-        this.api_url = null;
+        this.url = null;
     }
 
     /**
      * Set the URL for the API.
      *
      * @param {string} url - The URL to set for the API
-     * @return {void} 
+     * @return {void}
      */
     setURL = (url) => {
-        this.api_url = url;
+        this.url = url;
     }
-    getURL = _=> {return this.api_url}
-  
+
+    getURL = _=> {return this.url}
+
     /**
-     * A function that calls an API with the specified method and form parameters, 
+     * A function that calls an API with the specified method and form parameters,
      * and executes a callback function with the received data.
      *
      * @param {string} method - The HTTP method to use for the API call.
@@ -24,7 +28,7 @@ class api {
      * @return {Promise} A Promise that resolves after the API call is completed.
      */
     call_api = (method, formParameter, callback) => {
-        let url = this.api_url;
+        let url = this.url;
         const formData = new FormData();
 
         for(const element in formParameter){
@@ -68,9 +72,9 @@ class api {
      */
     get_api_status = (method, callback) => {
         return new Promise((resolve) => {
-            fetch(this.api_url, {
-                    method: method
-                  })
+            fetch(this.url, {
+                method: method
+            })
             .then(
                 response => {
                     callback(response.url, response.status);
