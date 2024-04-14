@@ -29,7 +29,6 @@ class database {
     /**
      * Connects to a specified database and returns a boolean based on the connection status.
      *
-     * @param string $database The name of the database to connect to.
      * @throws E_USER_ERROR No Database specified or Database `{$database}` not available.
      * @return bool
      */
@@ -52,19 +51,6 @@ class database {
      */
     public function disconnect(): bool {
         return mysqli_close($this->connection);
-    }
-
-    /**
-     * Check if the specified database is available in the configuration.
-     *
-     * @param string $database The name of the database to check.
-     * @throws E_USER_ERROR If the database is not available for the specified user.
-     * @return bool
-     */
-    protected function hasDatabase(string $database): bool {
-        if(isset($this->db_config[$database]))
-            return true;
-        trigger_error("The database $database is not available for {$this->db_config['username']}.", E_USER_ERROR);
     }
 
     /**
