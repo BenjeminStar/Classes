@@ -5,6 +5,7 @@ class database {
     private string $host;
     private string $username;
     private string $password;
+    private string $database;
     private array|false $db_config;
 
     /**
