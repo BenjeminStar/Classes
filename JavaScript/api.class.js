@@ -1,4 +1,4 @@
-class ApiClass {
+class api {
     constructor() {
         this.api_url = null;
     }
